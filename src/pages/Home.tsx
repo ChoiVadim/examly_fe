@@ -32,15 +32,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-screen p-4 flex gap-4">
+    <main className="h-screen p-4 flex gap-4 bg-background">
       <Sidebar />
       <div className="flex-1">
         <Chat />
       </div>
       <div className="flex-1">
       {loading ? (
-          <div className="flex justify-center items-center h-full bg-zinc-900 rounded-lg">
-            <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-white"></div>
+          <div className="flex justify-center items-center h-full bg-primary rounded-lg">
+            <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-secondary"></div>
           </div>
         ) : (
         <Exam questions={questions} />

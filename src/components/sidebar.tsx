@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { MessageSquare, PenTool, Settings, Home } from 'lucide-react';
 import { cn } from '../lib/utils';
+import Logo from '../assets/examly_white.png';
+import MiniLogo from '../assets/examly_white_short.png';
 
 const menuItems = [
   { icon: Home, label: 'Home', href: '/' },
@@ -15,11 +17,19 @@ export function Sidebar() {
     <div
       className={cn(
         "h-full rounded-lg bg-zinc-900 transition-all duration-300 ease-in-out flex flex-col",
-        isExpanded ? "w-48" : "w-16"
+        isExpanded ? "w-48" : "w-14"
       )}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
+      {/* Logo */}
+      <div className="flex items-center justify-center p-4">
+        <img src={isExpanded ? Logo : MiniLogo} alt="Logo" className="w-[isExpanded ? 48 : 14]" />
+      </div>
+
+      {/* Line */}
+      <div className="h-px w-2/3 bg-zinc-600 mx-auto"></div>
+
       {/* Top Section */}
       <div className="flex flex-col gap-4 p-4">
         {menuItems.map((item) => (
@@ -37,8 +47,11 @@ export function Sidebar() {
         ))}
       </div>
 
+      {/* Line */}
+      <div className="h-px w-2/3 bg-zinc-600 mx-auto mt-auto"></div>
+      
       {/* Bottom Section */}
-      <div className="mt-auto p-4">
+      <div className="p-4 pb-7">
         <div
           className="flex items-center gap-4 text-white/80 hover:text-white transition-colors cursor-pointer"
         >
